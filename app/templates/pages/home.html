@@ -1,0 +1,21 @@
+{% extends 'layouts/main.html' %}
+{% block title %}CRUD{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<h1>CRUD</h1>
+		<p class="lead">Example CRUD app.</p>
+		<h3>
+			<a href="/typeblists"><button class="btn btn-primary btn-lg">Find a typeblist</button></a>
+			<a href="/typeblists/create"><button class="btn btn-default btn-lg">Post a typeblist</button></a>
+		</h3>
+		<h3>
+			<a href="/typealists"><button class="btn btn-primary btn-lg">Find a typealist</button></a>
+			<a href="/typealists/create"><button class="btn btn-default btn-lg">Post a typealist</button></a>
+		</h3>
+		<h3>
+			<a href="/items/create"><button class="btn btn-default btn-lg">Post an item</button></a>
+		</h3>
+	</div>
+</div>
+{% endblock %}

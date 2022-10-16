@@ -1,0 +1,18 @@
+{% extends 'layouts/main.html' %}
+{% block title %}CRUD | TypeBLists{% endblock %}
+{% block content %}
+{% for res in results %}
+<ul class="items">
+	{% for typeblist in res.typeblists %}
+	<li>
+		<a href="/typeblists/{{ typeblist.id }}">
+			<div class="item">
+				<h5>{{ typeblist.name }}</h5>
+			</div>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endfor %}
+
+{% endblock %}

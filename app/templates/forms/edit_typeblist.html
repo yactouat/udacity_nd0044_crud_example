@@ -1,0 +1,16 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Edit TypeBList{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form class="form" method="post" action="/typeblists/{{typeblist.id}}/edit">
+      {{ form.csrf_token }}
+      <h3 class="form-heading">Edit typeblist <em>{{ typeblist.name }}</em> <a href="{{ url_for('index') }}" title="Back to homepage"><i class="fa fa-home pull-right"></i></a></h3>
+      <div class="form-group">
+        <label for="name">Name</label>
+        {{ form.name(class_ = 'form-control', autofocus = true) }}
+      </div>
+      <!-- <input type="submit" value="Edit TypeBList" class="btn btn-primary btn-lg btn-block"> -->
+      {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+    </form>
+  </div>
+{% endblock %}

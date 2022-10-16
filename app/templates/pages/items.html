@@ -1,0 +1,16 @@
+{% extends 'layouts/main.html' %}
+{% block title %}CRUD | Items{% endblock %}
+{% block content %}
+<div class="row items">
+    {%for item in items %}
+    <div class="col-sm-4">
+        <div class="tile tile-item">
+            <h4>{{ item.start_time }}</h4>
+            <h5><a href="/typealists/{{ item.typealist_id }}">{{ item.typealist_name }}</a></h5>
+            <p>also linked to</p>
+            <h5><a href="/typeblists/{{ item.typeblist_id }}">{{ item.typeblist_name }}</a></h5>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

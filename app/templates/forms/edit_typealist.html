@@ -1,0 +1,21 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Edit TypeAList{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form class="form" method="post" action="/typealists/{{typealist.id}}/edit">
+      {{ form.csrf_token }}
+      <h3 class="form-heading">Edit typealist <em>{{ typealist.name }}</em></h3>
+      <div class="form-group">
+        <label for="name">Name</label>
+        {{ form.name(class_ = 'form-control', autofocus = true) }}
+      </div>
+      <div class="form-group">
+        <label for="options">Options</label>
+        <small>Ctrl+Click to select multiple</small>
+        {{ form.options(class_ = 'form-control', placeholder='Options, separated by commas', autofocus = true) }}
+      </div>
+      <!-- <input type="submit" value="Edit TypeAList" class="btn btn-primary btn-lg btn-block"> -->
+      {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+    </form>
+  </div>
+{% endblock %}

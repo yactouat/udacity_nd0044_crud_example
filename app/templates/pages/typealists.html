@@ -1,0 +1,15 @@
+{% extends 'layouts/main.html' %}
+{% block title %}CRUD | TypeALists{% endblock %}
+{% block content %}
+<ul class="items">
+	{% for typealist in typealists %}
+	<li>
+		<a href="/typealists/{{ typealist.id }}">
+			<div class="item">
+				<h5>{{ typealist.name }}</h5>
+			</div>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'layouts/main.html' %}
+{% block title %}{{ typealist.name }} | TypeAList{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<h1 class="monospace">
+			{{ typealist.name }}
+		</h1>
+		<p class="subtitle">
+			ID: {{ typealist.id }}
+		</p>
+		<div class="options">
+			{% for option in typealist.options %}
+			<span class="option">{{ option }}</span>
+			{% endfor %}
+		</div>
+</div>
+<section>
+	<h2 class="monospace">{{ typealist.upcoming_items_count }} Upcoming {% if typealist.upcoming_items_count == 1 %}Item{% else %}Items{% endif %}</h2>
+	<div class="row">
+		{%for item in typealist.upcoming_items %}
+		<div class="col-sm-4">
+			<div class="tile tile-item">
+				<h5><a href="/typeblists/{{ item.typeblist_id }}">{{ item.typeblist_name }}</a></h5>
+				<h6>{{ item.start_time|datetime('full') }}</h6>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+<section>
+	<h2 class="monospace">{{ typealist.past_items_count }} Past {% if typealist.past_items_count == 1 %}Item{% else %}Items{% endif %}</h2>
+	<div class="row">
+		{%for item in typealist.past_items %}
+		<div class="col-sm-4">
+			<div class="tile tile-item">
+				<h5><a href="/typeblists/{{ item.typeblist_id }}">{{ item.typeblist_name }}</a></h5>
+				<h6>{{ item.start_time|datetime('full') }}</h6>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+<a href="/typealists/{{ typealist.id }}/edit"><button class="btn btn-primary btn-lg">Edit</button></a>
+
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends 'layouts/main.html' %}
+{% block title %}CRUD | TypeALists Search{% endblock %}
+{% block content %}
+<h3>Number of search results for "{{ search_term }}": {{ results.count }}</h3>
+<ul class="items">
+	{% for typealist in results.data %}
+	<li>
+		<a href="/typealists/{{ typealist.id }}">
+			<div class="item">
+				<h5>{{ typealist.name }}</h5>
+			</div>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

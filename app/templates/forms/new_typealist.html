@@ -1,0 +1,20 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New TypeAList{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form method="post" class="form">
+      {{ form.csrf_token }}
+      <h3 class="form-heading">List a new typealist</h3>
+      <div class="form-group">
+        <label for="name">Name</label>
+        {{ form.name(class_ = 'form-control', autofocus = true) }}
+      </div>
+        <label for="options">Options</label>
+        <small>Ctrl+Click to select multiple</small>
+        {{ form.options(class_ = 'form-control', placeholder='Options, separated by commas', autofocus = true) }}
+      </div>
+      <!-- <input type="submit" value="Create TypeAList" class="btn btn-primary btn-lg btn-block"> -->
+      {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+    </form>
+  </div>
+{% endblock %}
